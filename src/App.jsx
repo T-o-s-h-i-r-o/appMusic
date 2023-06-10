@@ -1,8 +1,8 @@
-import Nav from './jsx/nav';
-import CenterBlock from './jsx/centerBlock';
-import SideBar from './jsx/sidebar';
-import Bar from './jsx/bar';
-import './App.css';
+import Nav from './components/Nav';
+import CenterBlock from './components/CenterBlock';
+import SideBar from './components/Sidebar';
+import Bar from './components/Bar';
+import './css/style.css';
 
 function App() {
   return (

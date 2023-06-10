@@ -8,27 +8,27 @@ export default function Bar() {
                     <div class="player__controls">
                         <div class="player__btn-prev">
                             <svg class="player__btn-prev-svg" alt="prev">
-                                <use xlink:href="img/icon/sprite.svg#icon-prev"></use>
+                                <use xlinkHref="img/icon/sprite.svg#icon-prev"></use>
                             </svg>
                         </div>
                         <div class="player__btn-play _btn">
                             <svg class="player__btn-play-svg" alt="play">
-                                <use xlink:href="img/icon/sprite.svg#icon-play"></use>
+                                <use xlinkHref="img/icon/sprite.svg#icon-play"></use>
                             </svg>
                         </div>
                         <div class="player__btn-next">
                             <svg class="player__btn-next-svg" alt="next">
-                                <use xlink:href="img/icon/sprite.svg#icon-next"></use>
+                                <use xlinkHref="img/icon/sprite.svg#icon-next"></use>
                             </svg>
                         </div>
                         <div class="player__btn-repeat _btn-icon">
                             <svg class="player__btn-repeat-svg" alt="repeat">
-                                <use xlink:href="img/icon/sprite.svg#icon-repeat"></use>
+                                <use xlinkHref="img/icon/sprite.svg#icon-repeat"></use>
                             </svg>
                         </div>
                         <div class="player__btn-shuffle _btn-icon">
                             <svg class="player__btn-shuffle-svg" alt="shuffle">
-                                <use xlink:href="img/icon/sprite.svg#icon-shuffle"></use>
+                                <use xlinkHref="img/icon/sprite.svg#icon-shuffle"></use>
                             </svg>
                         </div>
                     </div>
@@ -37,7 +37,7 @@ export default function Bar() {
                         <div class="track-play__contain">
                             <div class="track-play__image">
                                 <svg class="track-play__svg" alt="music">
-                                    <use xlink:href="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
                                 </svg>
                             </div>
                             <div class="track-play__author">
@@ -51,12 +51,12 @@ export default function Bar() {
                         <div class="track-play__like-dis">
                             <div class="track-play__like _btn-icon">
                                 <svg class="track-play__like-svg" alt="like">
-                                    <use xlink:href="img/icon/sprite.svg#icon-like"></use>
+                                    <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                                 </svg>
                             </div>
                             <div class="track-play__dislike _btn-icon">
                                 <svg class="track-play__dislike-svg" alt="dislike">
-                                    <use xlink:href="img/icon/sprite.svg#icon-dislike"></use>
+                                    <use xlinkHref="img/icon/sprite.svg#icon-dislike"></use>
                                 </svg>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ export default function Bar() {
                    <div class="volume__content">
                         <div class="volume__image">
                             <svg class="volume__svg" alt="volume">
-                                <use xlink:href="img/icon/sprite.svg#icon-volume"></use>
+                                <use xlinkHref="img/icon/sprite.svg#icon-volume"></use>
                             </svg>
                         </div>
                         <div class="volume__progress _btn">
