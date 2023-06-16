@@ -105,6 +105,17 @@ body {
 
 
 
+// ========== burger menu ========
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: inherit;
+}
+
+
+
 // =================== main ====================//
 .main {
     flex: 1 1 auto;

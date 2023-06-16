@@ -1,15 +1,14 @@
+import { useState} from 'react';
+
 export default function Nav() {
-    const [burger__line, setBurgerClass] = useState("burger-bar unclicked");
     const [nav__menu, setMenuClass] = useState("menu hidden");
     const [isMenuClicked, setIsMenuClicked] = useState(false);
 
     const updateMenu = () => {
         if(!isMenuClicked) {
-            setBurgerClass("burger-bar clicked");
-            setMenuClass("menu visible");
+            setMenuClass("visible");
         } else {
-            setBurgerClass("burger-bar unclicked");
-            setMenuClass("menu hidden");
+            setMenuClass("hidden");
         }
         setIsMenuClicked(!isMenuClicked);
     }
@@ -20,9 +19,9 @@ export default function Nav() {
             <img className="logo__image" src="img/logo.png" alt="logo" />
         </div>
         <div className="nav__burger burger" onClick={updateMenu}>
-            <span className={burger__line}></span>
-            <span className={burger__line}></span>
-            <span className={burger__line}></span>
+            <span className="burger__line"></span>
+            <span className="burger__line"></span>
+            <span className="burger__line"></span>
         </div>
         <div className={nav__menu}>
             <ul className="menu__list">
