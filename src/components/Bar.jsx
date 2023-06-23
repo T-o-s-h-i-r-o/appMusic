@@ -1,4 +1,24 @@
+import React from 'react';
+
+const Skeleton = () => (
+<div className="track-play__contain track-play__contain_skeleton">
+    <div className="track-play__image_skeleton skeleton"></div>
+    <div className='track-play__form-aa_skeleton'>
+        <div className="track-play__author_skeleton skeleton"></div>
+        <div className="track-play__album_skeleton skeleton"></div>
+    </div>
+</div>
+)
+
 export default function Bar() {
+    const [loading, setLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 3000)
+    }, []);
+
     return (
         <div className="bar">
         <div className="bar__content">
@@ -34,19 +54,23 @@ export default function Bar() {
                     </div>
                     
                     <div className="player__track-play track-play">
+                        {loading ? <Skeleton /> : 
                         <div className="track-play__contain">
                             <div className="track-play__image">
                                 <svg className="track-play__svg" alt="music">
                                     <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
                                 </svg>
                             </div>
+                        
                             <div className="track-play__author">
                                 <a className="track-play__author-link" href="http://">Ты та...</a>
                             </div>
+                        
                             <div className="track-play__album">
                                 <a className="track-play__album-link" href="http://">Баста</a>
                             </div>
                         </div>
+                        }
 
                         <div className="track-play__like-dis">
                             <div className="track-play__like _btn-icon">
