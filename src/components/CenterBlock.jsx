@@ -129,7 +129,6 @@ export default function CenterBlock() {
     //     }
 
 
-
     // function blockFilterAuthor() {
     //     return (
     //     <div className='filter__author'>
