@@ -99,7 +99,7 @@ body {
 .main__centerblock {
   width: auto;
   flex-grow: 3;
-  padding: 20px 40px 20px 111px;
+  padding: 20px 40px 20px 50px;
 }
 .main__sidebar {
   max-width: 418px;
@@ -120,6 +120,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
 }
 .nav__menu {
   display: block;
@@ -234,6 +235,63 @@ body {
 .filter__button:not(:last-child) {
   margin-right: 10px;
 }
+.filter__button:hover {
+  color: #D9B6FF;
+}
+.filter__author {
+  display: flex;
+  align-items: center;
+  width: 248px;
+  height: 305px;
+  background: #313131;
+  border-radius: 12px;
+  padding-right: 34px;
+  padding-left: 34px;
+  position: absolute;
+  left: 25%;
+  top: 34%;
+}
+.filter__author_select {
+  display: flex;
+  gap: 28px;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 237px;
+}
+.filter__author_select::-webkit-scrollbar {
+  border-radius: 10px;
+  width: 4px;
+  background: #4B4949;
+}
+.filter__author_select::-webkit-scrollbar-thumb {
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+.filter__author_input {
+  display: none;
+}
+.filter__author_input:checked + label {
+  text-decoration-line: underline;
+  color: #B672FF;
+}
+.filter__author_input:disabled + label {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.filter__author_label {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+  font-family: "StratosSkyeng";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+.filter__author_label:hover {
+  color: #D9B6FF;
+}
 
 .content__title {
   display: flex;
@@ -281,6 +339,27 @@ body {
   text-align: end;
 }
 
+.skeleton {
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-color: #313131;
+  }
+  0% {
+    background-color: #3a3a3a;
+  }
+  50% {
+    background-color: #414141;
+  }
+  0% {
+    background-color: #484848;
+  }
+  100% {
+    background-color: #4E4E4E;
+  }
+}
 .playlist__item {
   width: 100%;
   display: block;
@@ -292,12 +371,20 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.playlist__track_skeleton {
+  justify-content: flex-start;
+}
 
 .track__title {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 447px;
+}
+.track__title_skeleton {
+  display: flex;
+  align-items: center;
+  margin-right: 60px;
 }
 .track__title-image {
   width: 51px;
@@ -309,11 +396,22 @@ body {
   justify-content: center;
   margin-right: 17px;
 }
+.track__title-image_skeleton {
+  width: 51px;
+  height: 51px;
+  background: #313131;
+  margin-right: 14px;
+}
 .track__title-svg {
   width: 18px;
   height: 17px;
   fill: transparent;
   stroke: #4E4E4E;
+}
+.track__title-text_skeleton {
+  width: 433px;
+  height: 19px;
+  background: #313131;
 }
 .track__title-link {
   font-style: normal;
@@ -334,6 +432,12 @@ body {
   display: flex;
   justify-content: flex-start;
 }
+.track__author_skeleton {
+  width: 386px;
+  height: 19px;
+  background: #313131;
+  margin-right: 50px;
+}
 .track__author-link {
   font-style: normal;
   font-weight: 400;
@@ -344,6 +448,11 @@ body {
 }
 .track__album {
   width: 245px;
+}
+.track__album_skeleton {
+  width: 417px;
+  height: 19px;
+  background: #313131;
 }
 .track__album-link {
   font-style: normal;
@@ -519,6 +628,9 @@ body {
   grid-template-areas: "image author" "image album";
   align-items: center;
 }
+.track-play__contain_skeleton {
+  gap: 14px;
+}
 .track-play__image {
   width: 51px;
   height: 51px;
@@ -529,15 +641,31 @@ body {
   margin-right: 12px;
   grid-area: image;
 }
+.track-play__image_skeleton {
+  width: 51px;
+  height: 51px;
+  background: #313131;
+}
 .track-play__svg {
   width: 18px;
   height: 17px;
   fill: transparent;
   stroke: #4E4E4E;
 }
+.track-play__form-aa_skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .track-play__author {
   grid-area: author;
   min-width: 49px;
+}
+.track-play__author_skeleton {
+  width: 60px;
+  height: 14px;
+  background: #313131;
+  grid-area: author;
 }
 .track-play__author-link {
   font-style: normal;
@@ -550,6 +678,12 @@ body {
 .track-play__album {
   grid-area: album;
   min-width: 49px;
+}
+.track-play__album_skeleton {
+  width: 60px;
+  height: 14px;
+  background: #313131;
+  grid-area: author;
 }
 .track-play__album-link {
   font-style: normal;
