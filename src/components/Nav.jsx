@@ -1,31 +1,32 @@
 import { useState} from 'react';
+import * as S from '../styles/Nav';
 
 export default function Nav() {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
 
     function blockNavMenu() {
         return (
-        <div className='nav__menu menu'>
-            <ul className="menu__list">
-                <li className="menu__item"><a href="http://" className="menu__link">Главное</a></li>
-                <li className="menu__item"><a href="http://" className="menu__link">Мой плейлист</a></li>
-                <li className="menu__item"><a href="http://" className="menu__link">Войти</a></li>
-            </ul>
-        </div>
+        <S.NavMenu>
+            <S.MenuList>
+                <S.MenuItem><S.MenuLink href="http://">Главное</S.MenuLink></S.MenuItem>
+                <S.MenuItem><S.MenuLink href="http://">Мой плейлист</S.MenuLink></S.MenuItem>
+                <S.MenuItem><S.MenuLink href="http://">Войти</S.MenuLink></S.MenuItem>
+            </S.MenuList>
+        </S.NavMenu>
         )
     }
 
     return (
-    <nav className="main__nav nav">
-        <div className="nav__logo logo">
-            <img className="logo__image" src="img/logo.png" alt="logo" />
-        </div>
-        <div className="nav__burger burger" onClick={() => setIsOpenMenu(!isOpenMenu)}>
-            <span className="burger__line"></span>
-            <span className="burger__line"></span>
-            <span className="burger__line"></span>
-        </div>
-        {isOpenMenu && ( blockNavMenu())}
-    </nav>
+        <S.MainNav>
+            <S.NavLogo>
+                <S.LogoImage src="img/logo.png" alt="logo"></S.LogoImage>
+            </S.NavLogo>
+            <S.NavBurger onClick={() => setIsOpenMenu(!isOpenMenu)}>
+                <S.BurgerLine />
+                <S.BurgerLine />
+                <S.BurgerLine />
+            </S.NavBurger>
+            {isOpenMenu && ( blockNavMenu())}
+        </S.MainNav>
 )
 }
