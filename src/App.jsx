@@ -2,20 +2,24 @@ import Nav from './components/Nav';
 import CenterBlock from './components/CenterBlock';
 import SideBar from './components/Sidebar';
 import Bar from './components/Bar';
-import './css/style.css';
+import * as S from './styles/App';
+import GlobalStyles from './styles/Global'
 
 function App() {
   return (
-    <div className='wrapper'>
-        <div className='container'>
-            <div className='main'>
+    <>
+    <GlobalStyles />
+    <S.Wrapper>
+        <S.Container>
+            <S.Main>
                 <Nav />
                 <CenterBlock />
                 <SideBar />
                 <Bar />
-            </div>
-        </div>
-    </div>
+            </S.Main>
+        </S.Container>
+    </S.Wrapper>
+    </>
 )
 }
 
