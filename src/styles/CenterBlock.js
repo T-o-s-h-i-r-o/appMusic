@@ -88,15 +88,15 @@ export const BtnTextStyles = css`
 `
 export const ButtonAuthor = styled.div`
     ${FilterButtonStyles}
-    // ${BtnTextStyles}
+    ${BtnTextStyles}
 `
 export const ButtonYear = styled.div`
     ${FilterButtonStyles}
-    // ${BtnTextStyles}
+    ${BtnTextStyles}
 `
 export const ButtonGenre = styled.div`
     ${FilterButtonStyles}
-    // ${BtnTextStyles}
+    ${BtnTextStyles}
 `
 export const CenterblockContent = styled.div`
     display: flex;
