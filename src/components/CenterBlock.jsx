@@ -116,8 +116,12 @@ const Skeleton = () => (
 )
 
 export default function CenterBlock() {
-    const [isOpenFilterAuthor, setIsOpenFilterAuthor] = useState(false);
+    const [visibleFilter, setVisibleFilter] = useState(null);
     const [loading, setLoading] = React.useState(true);
+
+    const toggleVisibleFilter = (filter) => {
+        setVisibleFilter(visibleFilter === filter ? null : filter);
+      };
 
     function blockFilterAuthor() {
         return (
@@ -167,11 +171,13 @@ export default function CenterBlock() {
         <S.CenterblockH2>Треки</S.CenterblockH2>
         <S.CenterblockFilter>
             <S.FilterTitle>Искать по:</S.FilterTitle>
-            <S.ButtonAuthor onClick={() => setIsOpenFilterAuthor(!isOpenFilterAuthor)}>исполнителю</S.ButtonAuthor>
-            <S.ButtonYear onClick={() => setIsOpenFilterAuthor(false)}>году выпуска</S.ButtonYear>
-            <S.ButtonGenre onClick={() => setIsOpenFilterAuthor(false)}>жанру</S.ButtonGenre>
+            <S.ButtonAuthor isActive={visibleFilter === "author"} onClick={() => toggleVisibleFilter('author')}>исполнителю</S.ButtonAuthor>
+            {visibleFilter === "author" && (blockFilterAuthor())}
+            <S.ButtonYear isActive={visibleFilter === "year"} onClick={() => toggleVisibleFilter("year")}>году выпуска</S.ButtonYear>
+            {visibleFilter === "year" && <div>Я фильтр по году</div>}
+            <S.ButtonGenre isActive={visibleFilter === "genre"} onClick={() => toggleVisibleFilter("genre")}>жанру</S.ButtonGenre>
+            {visibleFilter === "genre" && <div>Я фильтр по жанру</div>}
         </S.CenterblockFilter>
-        {isOpenFilterAuthor && ( blockFilterAuthor())}
         <S.CenterblockContent>
             <S.ContentTitle>
                 <S.Col01>Трек</S.Col01>

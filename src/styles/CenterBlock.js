@@ -68,7 +68,6 @@ export const FilterButtonStyles = css`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    border: 1px solid #FFFFFF;
     border-radius: 60px;
     padding: 6px 20px;
 
@@ -77,32 +76,27 @@ export const FilterButtonStyles = css`
     }
 
     &:hover {
-        color: #D9B6FF;
+        border-color: ${(props) => (props.isActive ? "#AD61FF" : "#D9B6FF")};
+        color: ${(props) => (props.isActive ? "#AD61FF" : "#D9B6FF")};
+        cursor: pointer;
     }
 `
 export const BtnTextStyles = css`
-    &:active {
-        border-color: #AD61FF;
-        color: #AD61FF;
-        cursor: pointer;
-    }
-    &:hover {
-        border-color: #D9B6FF;
-        color: #D9B6FF;
-        cursor: pointer;
-    }
+    border: 1px solid ${(props) => (props.isActive ? "#AD61FF" : "#FFFFFF")};
+    color: ${(props) => (props.isActive ? "#AD61FF" : "#FFFFFF")};
+    cursor: pointer;
 `
 export const ButtonAuthor = styled.div`
     ${FilterButtonStyles}
-    ${BtnTextStyles}
+    // ${BtnTextStyles}
 `
 export const ButtonYear = styled.div`
     ${FilterButtonStyles}
-    ${BtnTextStyles}
+    // ${BtnTextStyles}
 `
 export const ButtonGenre = styled.div`
     ${FilterButtonStyles}
-    ${BtnTextStyles}
+    // ${BtnTextStyles}
 `
 export const CenterblockContent = styled.div`
     display: flex;
