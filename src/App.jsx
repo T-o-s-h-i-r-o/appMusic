@@ -1,9 +1,6 @@
-import Nav from './components/Nav';
-import CenterBlock from './components/CenterBlock';
-import SideBar from './components/Sidebar';
-import Bar from './components/Bar';
 import * as S from './styles/App';
 import GlobalStyles from './styles/Global'
+import { AppRoutes } from './routes';
 
 function App() {
   return (
@@ -12,10 +9,7 @@ function App() {
     <S.Wrapper>
         <S.Container>
             <S.Main>
-                <Nav />
-                <CenterBlock />
-                <SideBar />
-                <Bar />
+                <AppRoutes />
             </S.Main>
         </S.Container>
     </S.Wrapper>
