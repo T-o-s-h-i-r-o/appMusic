@@ -11,7 +11,7 @@ export default function Nav() {
             <S.MenuList>
                 <S.MenuItem><Link to="/"><S.MenuLink>Главное</S.MenuLink></Link></S.MenuItem>
                 <S.MenuItem><Link to="/collections"><S.MenuLink>Мой плейлист</S.MenuLink></Link></S.MenuItem>
-                <S.MenuItem><Link to="/login"><S.MenuLink>Войти</S.MenuLink></Link></S.MenuItem>
+                <S.MenuItem><Link to="/login"><S.MenuLink>Выйти</S.MenuLink></Link></S.MenuItem>
             </S.MenuList>
         </S.NavMenu>
         )
