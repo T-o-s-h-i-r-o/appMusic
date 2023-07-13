@@ -1,5 +1,6 @@
 import { useState} from 'react';
 import * as S from '../styles/Nav';
+import { Link } from "react-router-dom";
 
 export default function Nav() {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -8,9 +9,9 @@ export default function Nav() {
         return (
         <S.NavMenu>
             <S.MenuList>
-                <S.MenuItem><S.MenuLink href="http://">Главное</S.MenuLink></S.MenuItem>
-                <S.MenuItem><S.MenuLink href="http://">Мой плейлист</S.MenuLink></S.MenuItem>
-                <S.MenuItem><S.MenuLink href="http://">Войти</S.MenuLink></S.MenuItem>
+                <S.MenuItem><Link to="/"><S.MenuLink>Главное</S.MenuLink></Link></S.MenuItem>
+                <S.MenuItem><Link to="/selection/4"><S.MenuLink>Мой плейлист</S.MenuLink></Link></S.MenuItem>
+                <S.MenuItem><Link to="/login"><S.MenuLink>Выйти</S.MenuLink></Link></S.MenuItem>
             </S.MenuList>
         </S.NavMenu>
         )
@@ -19,7 +20,7 @@ export default function Nav() {
     return (
         <S.MainNav>
             <S.NavLogo>
-                <S.LogoImage src="img/logo.png" alt="logo"></S.LogoImage>
+                <Link to="/"><S.LogoImage src="img/logo.png" alt="logo"></S.LogoImage></Link>
             </S.NavLogo>
             <S.NavBurger onClick={() => setIsOpenMenu(!isOpenMenu)}>
                 <S.BurgerLine />

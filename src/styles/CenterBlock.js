@@ -257,8 +257,8 @@ export const FilterAuthor = styled.div`
     padding-left: 34px;
 
     position: absolute;
-    left: 22%;
-    top: 34%;
+    left: 20%;
+    top: 31%;
 `
 export const FilterAuthorSelect = styled.div`
     display: flex;
