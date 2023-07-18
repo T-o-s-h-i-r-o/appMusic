@@ -60,6 +60,15 @@ export const PlayerBtnPlaySvg = styled.svg`
     height: 20px;
     fill: #D9D9D9;
 `
+export const PlayerBtnPause = styled.div`
+    ${BtnStyles}
+    margin-right: 23px;
+`
+export const PlayerBtnPauseSvg = styled.svg`
+    width: 15px;
+    height: 19px;
+    fill: #D9D9D9;
+`
 export const PlayerBtnNext = styled.div`
     ${PlayerBtnStyles}
     margin-right: 28px;

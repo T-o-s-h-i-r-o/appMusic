@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import * as S from '../styles/Bar';
 
 const Skeleton = () => (
@@ -20,8 +20,25 @@ export default function Bar() {
         }, 3000)
     }, []);
 
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const audioElem = useRef();
+
+    const PlayPause = () => {
+        setIsPlaying(!isPlaying);
+    };
+
+    useEffect(() => {
+        if (isPlaying) {
+            audioElem.current.play();
+        } else {
+            audioElem.current.pause();
+        }
+    }, [isPlaying]);
+
     return (
         <S.Bar>
+        <audio src="/music/Bobby_Marleni_-_Dropin.mp3" ref={audioElem} />
         <S.BarContent>
             <S.BarPlayerProgress></S.BarPlayerProgress>
             <S.BarPlayerBlock>
@@ -32,11 +49,18 @@ export default function Bar() {
                                 <use xlinkHref="img/icon/sprite.svg#icon-prev"></use>
                             </S.PlayerBtnPrevSvg>
                         </S.PlayerBtnPrev>
-                        <S.PlayerBtnPlay>
+                        {isPlaying ? 
+                        <S.PlayerBtnPause onClick={PlayPause}>
+                            <S.PlayerBtnPauseSvg alt="pause">
+                                <use xlinkHref="img/icon/pause"></use>
+                            </S.PlayerBtnPauseSvg>
+                        </S.PlayerBtnPause> :
+                        <S.PlayerBtnPlay onClick={PlayPause}>
                             <S.PlayerBtnPlaySvg alt="play">
                                 <use xlinkHref="img/icon/sprite.svg#icon-play"></use>
                             </S.PlayerBtnPlaySvg>
                         </S.PlayerBtnPlay>
+                        }
                         <S.PlayerBtnNext>
                             <S.PlayerBtnNextSvg alt="next">
                                 <use xlinkHref="img/icon/sprite.svg#icon-next"></use>
