@@ -17,6 +17,13 @@ export const BarPlayerProgress = styled.div`
     width: 100%;
     height: 5px;
     background: #2E2E2E;
+    cursor: pointer;
+`
+export const BarProgressLine = styled.div`
+    width: 100%;
+    height: 5px;
+    background: #B672FF;
+    cursor: pointer;
 `
 export const BarPlayerBlock = styled.div`
     height: 73px;
@@ -62,7 +69,8 @@ export const PlayerBtnPlaySvg = styled.svg`
 `
 export const PlayerBtnPause = styled.div`
     ${BtnStyles}
-    margin-right: 23px;
+    margin-right: 27px;
+    margin-left: 3px;
 `
 export const PlayerBtnPauseSvg = styled.svg`
     width: 15px;

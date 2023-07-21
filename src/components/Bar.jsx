@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import * as S from '../styles/Bar';
+import { songsdata } from './audios';
 
 const Skeleton = () => (
 <S.TrackPlayContainSkeleton>
@@ -21,6 +22,7 @@ export default function Bar() {
     }, []);
 
     const [isPlaying, setIsPlaying] = useState(false);
+    const [currentSong, setCurrentSong] = useState(songsdata[0]);
 
     const audioElem = useRef();
 
@@ -36,11 +38,28 @@ export default function Bar() {
         }
     }, [isPlaying]);
 
+    const onPlaying = () => {
+        const duration = audioElem.current.duration;
+        const currentTime = audioElem.current.currentTime;
+
+        setCurrentSong({ ...currentSong, "progress": currentTime / duration * 100, "length": duration });
+    }
+
+    const clickRef = useRef();
+
+    const checkWidth = (e) => {
+        let width = clickRef.current.clientWidth;
+        const offset = e.nativeEvent.offsetX;
+
+        const divProgress = offset / width * 100;
+        audioElem.current.currentTime = divProgress / 100 * currentSong.length;
+    }
+
     return (
         <S.Bar>
-        <audio src="/music/Bobby_Marleni_-_Dropin.mp3" ref={audioElem} />
+        <audio src="/music/Bobby_Marleni_-_Dropin.mp3" ref={audioElem} onTimeUpdate={onPlaying} />
         <S.BarContent>
-            <S.BarPlayerProgress></S.BarPlayerProgress>
+            <S.BarPlayerProgress onClick={checkWidth} ref={clickRef}><S.BarProgressLine style={{width: `${currentSong.progress+"%"}`}} /></S.BarPlayerProgress>
             <S.BarPlayerBlock>
                 <S.BarPlayer>
                     <S.PlayerControls>
@@ -52,7 +71,7 @@ export default function Bar() {
                         {isPlaying ? 
                         <S.PlayerBtnPause onClick={PlayPause}>
                             <S.PlayerBtnPauseSvg alt="pause">
-                                <use xlinkHref="img/icon/pause"></use>
+                                <use xlinkHref="img/icon/sprite.svg#icon-pause"></use>
                             </S.PlayerBtnPauseSvg>
                         </S.PlayerBtnPause> :
                         <S.PlayerBtnPlay onClick={PlayPause}>
