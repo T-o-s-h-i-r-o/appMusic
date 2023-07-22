@@ -12,6 +12,7 @@ export default function Nav() {
                 <S.MenuItem><Link to="/"><S.MenuLink>Главное</S.MenuLink></Link></S.MenuItem>
                 <S.MenuItem><Link to="/selection/4"><S.MenuLink>Мой плейлист</S.MenuLink></Link></S.MenuItem>
                 <S.MenuItem><Link to="/login"><S.MenuLink>Выйти</S.MenuLink></Link></S.MenuItem>
+                <S.MenuItem><S.DarkLigthTheme alt="dark"><use xlinkHref='img/icon/sprite.svg#icon-dark' /></S.DarkLigthTheme></S.MenuItem>
             </S.MenuList>
         </S.NavMenu>
         )
