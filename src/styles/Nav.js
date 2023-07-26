@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const MainNav = styled.nav`
     width: 244px;
-    background-color: #181818;
+    // background-color: #181818;
+    background-color: #1C1C1C;
     padding: 20px 0 20px 36px;
 `
 export const NavLogo = styled.nav`
@@ -57,4 +58,5 @@ export const MenuLink = styled.a`
 export const DarkLigthTheme = styled.svg`
     width: 39px;
     height: 39px;    
+    cursor: pointer;
 `
