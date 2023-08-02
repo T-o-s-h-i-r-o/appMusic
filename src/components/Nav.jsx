@@ -1,19 +1,20 @@
 import { useState} from 'react';
 import * as S from '../styles/Nav';
 import { Link } from "react-router-dom";
+// import { ThemeProvider } from 'styled-components';
+// import { useThemeContext } from '../context/Context';
+
+export const ThemeSwitcher = () => {
+    const { toggleTheme } = useThemeContext();
+  
+    return <button onClick={toggleTheme}>Change Theme</button>;
+  };
 
 export default function Nav() {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
-    const [changeColor, setChangeColor] = useState('dark');
 
-    function changeColorTheme() {
-        if (changeColor === 'dark') {
-            return setChangeColor('light');
-        }
-        if (changeColor === 'light') {
-            return setChangeColor('dark');
-        }
-    }
+    const { theme } = useThemeContext();
+
 
     function blockNavMenu() {
         return (
@@ -22,13 +23,14 @@ export default function Nav() {
                 <S.MenuItem><Link to="/"><S.MenuLink>Главное</S.MenuLink></Link></S.MenuItem>
                 <S.MenuItem><Link to="/selection/4"><S.MenuLink>Мой плейлист</S.MenuLink></Link></S.MenuItem>
                 <S.MenuItem><Link to="/login"><S.MenuLink>Выйти</S.MenuLink></Link></S.MenuItem>
-                <S.MenuItem><S.DarkLigthTheme alt="color theme"><use onClick={changeColorTheme} xlinkHref='img/icon/sprite.svg#icon-dark' /></S.DarkLigthTheme></S.MenuItem>
+                <S.MenuItem><S.DarkLigthTheme onClick={toggleTheme} alt="color theme"><use xlinkHref='img/icon/sprite.svg#icon-dark' /></S.DarkLigthTheme></S.MenuItem>
             </S.MenuList>
         </S.NavMenu>
         )
     }
 
     return (
+        // <ThemeContext.Provider value={{ theme: currentTheme, toggleTheme }}>
         <S.MainNav>
             <S.NavLogo>
                 <Link to="/"><S.LogoImage src="img/logo.png" alt="logo"></S.LogoImage></Link>
@@ -40,5 +42,6 @@ export default function Nav() {
             </S.NavBurger>
             {isOpenMenu && ( blockNavMenu())}
         </S.MainNav>
+        // </ThemeContext.Provider>
 )
 }

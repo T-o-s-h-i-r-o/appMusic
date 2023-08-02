@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const MainNav = styled.nav`
     width: 244px;
-    // background-color: #181818;
-    background-color: #1C1C1C;
+    // background-color: #1C1C1C;
     padding: 20px 0 20px 36px;
+
+    background-color: theme.background;
 `
 export const NavLogo = styled.nav`
     width: 113.33px;
@@ -60,3 +61,12 @@ export const DarkLigthTheme = styled.svg`
     height: 39px;    
     cursor: pointer;
 `
+/*
+.light {
+    --background-color: transparent;
+}
+
+.dark {
+    --background-color: blue;
+}
+*/
