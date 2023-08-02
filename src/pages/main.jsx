@@ -3,6 +3,8 @@ import CenterBlock from '../components/CenterBlock';
 import SideBar from '../components/Sidebar';
 import Bar from '../components/Bar';
 import { ThemeContext } from 'styled-components';
+import { useState } from 'react';
+import { themes } from '../context/Context';
 
 export const Main = () => {
 
@@ -19,7 +21,6 @@ export const Main = () => {
 
     return (
         <ThemeContext.Provider value={{ theme: currentTheme, toggleTheme }}>
-        <ThemeSwitcher />
         <Nav />
         <CenterBlock />
         <SideBar />

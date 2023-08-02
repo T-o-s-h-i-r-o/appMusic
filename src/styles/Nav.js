@@ -5,7 +5,7 @@ export const MainNav = styled.nav`
     // background-color: #1C1C1C;
     padding: 20px 0 20px 36px;
 
-    background-color: theme.background;
+    // background-color: theme.background;
 `
 export const NavLogo = styled.nav`
     width: 113.33px;
