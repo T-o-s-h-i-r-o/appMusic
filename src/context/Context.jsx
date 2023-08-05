@@ -2,16 +2,18 @@ import React, {useContext} from "react";
 
 export const themes = {
     light: {
-      // color: '#282c34',
-      // background: "#fff",
+      backgroundApp: '#FFF',
 
-      background: 'red',
+      backgroundBurger: '#000000',
+      backgroundNav: '#F6F5F3',
+      colorText: '#000000',
     },
     dark: {
-      // color: '#fff',
-      // background: "#282c34",
+      backgroundApp: '#181818',
 
-      background: '#1C1C1C',
+      backgroundBurger: '#D3D3D3',
+      backgroundNav: '#1C1C1C',
+      colorText: '#FFFFFF',
     },
   };
   
@@ -24,7 +26,7 @@ export const themes = {
   export const useThemeContext = () => {
     const theme = useContext(ThemeContext);
   
-    if(!theme) return theme.dark;
+    if(!theme) throw new Error('нельзя воспользовать хуком вне котекста ThemeContext');
   
     return theme;
   }

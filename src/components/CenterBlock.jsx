@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import * as S from '../styles/CenterBlock';
+import { useThemeContext } from '../context/Context';
 
 const Skeleton = () => (
     <S.ContentPlaylist>

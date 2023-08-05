@@ -1,7 +1,6 @@
 import { useState} from 'react';
 import * as S from '../styles/Nav';
 import { Link } from "react-router-dom";
-// import { ThemeProvider } from 'styled-components';
 import { useThemeContext } from '../context/Context';
 
 export default function Nav() {
@@ -14,24 +13,26 @@ export default function Nav() {
         return (
         <S.NavMenu>
             <S.MenuList>
-                <S.MenuItem><Link to="/"><S.MenuLink>Главное</S.MenuLink></Link></S.MenuItem>
-                <S.MenuItem><Link to="/selection/4"><S.MenuLink>Мой плейлист</S.MenuLink></Link></S.MenuItem>
-                <S.MenuItem><Link to="/login"><S.MenuLink>Выйти</S.MenuLink></Link></S.MenuItem>
-                <S.MenuItem onClick={toggleTheme}><S.DarkLigthTheme alt="color theme"><use xlinkHref='img/icon/sprite.svg#icon-dark' /></S.DarkLigthTheme></S.MenuItem>
+                <S.MenuItem><Link to="/"><S.MenuLink style={{color: theme.colorText}}>Главное</S.MenuLink></Link></S.MenuItem>
+                <S.MenuItem><Link to="/selection/4"><S.MenuLink style={{color: theme.colorText}}>Мой плейлист</S.MenuLink></Link></S.MenuItem>
+                <S.MenuItem><Link to="/login"><S.MenuLink style={{color: theme.colorText}}>Выйти</S.MenuLink></Link></S.MenuItem>
+                <S.MenuItem onClick={toggleTheme}><S.DarkLigthTheme alt="color theme">
+                    <use xlinkHref={theme.colorText === '#FFFFFF' ? 'img/icon/sprite.svg#icon-dark' : 'img/icon/sprite.svg#icon-light'} />
+                    </S.DarkLigthTheme></S.MenuItem>
             </S.MenuList>
         </S.NavMenu>
         )
     }
 
     return (
-        <S.MainNav style={{background: theme.background}}>
-            <S.NavLogo>
-                <Link to="/"><S.LogoImage src="img/logo.png" alt="logo"></S.LogoImage></Link>
-            </S.NavLogo>
+        <S.MainNav style={{background: theme.backgroundNav}}>
+            <S.NavLogo><Link to="/">
+                <S.LogoImage src={theme.colorText === '#FFFFFF' ? 'img/logo.png' : 'img/logoDark.png'} alt="logo" />
+            </Link></S.NavLogo>
             <S.NavBurger onClick={() => setIsOpenMenu(!isOpenMenu)}>
-                <S.BurgerLine />
-                <S.BurgerLine />
-                <S.BurgerLine />
+                <S.BurgerLine style={{background: theme.backgroundBurger}} />
+                <S.BurgerLine style={{background: theme.backgroundBurger}} />
+                <S.BurgerLine style={{background: theme.backgroundBurger}} />
             </S.NavBurger>
             {isOpenMenu && ( blockNavMenu())}
         </S.MainNav>
