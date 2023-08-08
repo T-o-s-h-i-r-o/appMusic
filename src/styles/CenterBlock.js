@@ -31,11 +31,11 @@ export const SearchText = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    // color: #FFFFFF;
 
     &::placeholder {
         background-color: transparent;
-        color: #FFFFFF;
+        // color: #FFFFFF;
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
@@ -82,8 +82,8 @@ export const FilterButtonStyles = css`
     }
 `
 export const BtnTextStyles = css`
-    border: 1px solid ${(props) => (props.isActive ? "#AD61FF" : "#FFFFFF")};
-    color: ${(props) => (props.isActive ? "#AD61FF" : "#FFFFFF")};
+    border: 1px solid ${(props) => (props.isActive ? "#AD61FF" : props.colorText)};
+    color: ${(props) => (props.isActive ? "#AD61FF" : props.colorText)};
     cursor: pointer;
 `
 export const ButtonAuthor = styled.div`

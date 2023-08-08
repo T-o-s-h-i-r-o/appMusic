@@ -16,13 +16,11 @@ function App() {
       setCurrentTheme(themes.light);
     };
 
-    const { theme } = useThemeContext();
-
   return (
     <ThemeContext.Provider value={{ theme: currentTheme, toggleTheme }}>
     <GlobalStyles />
-    <S.Wrapper value={{ theme: currentTheme, toggleTheme }}>
-        <S.Container style={{background: theme.backgroundApp}}>
+    <S.Wrapper>
+        <S.Container style={{background: currentTheme.backgroundApp}}>
             <S.Main>
                 <AppRoutes />
             </S.Main>
