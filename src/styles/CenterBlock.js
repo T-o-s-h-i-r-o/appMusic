@@ -82,8 +82,8 @@ export const FilterButtonStyles = css`
     }
 `
 export const BtnTextStyles = css`
-    border: 1px solid ${(props) => (props.isActive ? "#AD61FF" : props.colorText)};
-    color: ${(props) => (props.isActive ? "#AD61FF" : props.colorText)};
+    border: 1px solid ${(props) => (props.isActive ? "#AD61FF" : props.colorTheme)};
+    color: ${(props) => (props.isActive ? "#AD61FF" : props.colorTheme)};
     cursor: pointer;
 `
 export const ButtonAuthor = styled.div`
@@ -172,7 +172,7 @@ export const TrackTitleImage = styled.div`
     width: 51px;
     height: 51px;
     padding: 16px;
-    background: #313131;
+    // background: #313131; 
     display: flex;
     align-items: center;
     justify-content: center;

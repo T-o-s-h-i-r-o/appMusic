@@ -9,8 +9,11 @@ export const themes = {
       colorText: '#000000',
 
       colorTextCenterBlock: '#B1B1B1',
-      buttonSelectActive: '',
-      buttonSelectHover: '',
+      buttonSelectHover: '#580EA2',
+      backgroundTrackTitleImage: '#F6F4F4',
+
+      backgroundBar: '#FFFFFF',
+      backgroundBarPlayerProgress: '#D9D9D9',
     },
     dark: {
       backgroundApp: '#181818',
@@ -20,8 +23,11 @@ export const themes = {
       colorText: '#FFFFFF',
 
       colorTextCenterBlock: '#4E4E4E',
-      buttonSelectActive: 'AD61FF',
       buttonSelectHover: 'D9B6FF',
+      backgroundTrackTitleImage: '#313131',
+
+      backgroundBar: '#181818',
+      backgroundBarPlayerProgress: '#2E2E2E',
     },
   };
   

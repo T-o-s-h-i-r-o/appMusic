@@ -1,11 +1,15 @@
 import * as S from '../styles/Sidebar';
 import { Link } from 'react-router-dom';
+import { useThemeContext } from '../context/Context';
 
 export default function SideBar() {
+
+    const { theme } = useThemeContext();
+
     return (
         <S.MainSidebar>
         <S.SidebarPersonal>
-            <S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
+            <S.SidebarPersonalName style={{color: theme.colorText}}>Sergey.Ivanov</S.SidebarPersonalName>
             <S.SidebarAvatar />
         </S.SidebarPersonal>
         <S.SidebarBlock>

@@ -175,12 +175,12 @@ export default function CenterBlock() {
         <S.CenterblockFilter>
             <S.FilterTitle style={{color: theme.colorText}}>Искать по:</S.FilterTitle>
 
-            <S.ButtonAuthor style={{color: theme.colorText}} isActive={visibleFilter === "author"} onClick={() => toggleVisibleFilter('author')}>исполнителю</S.ButtonAuthor>
+            <S.ButtonAuthor colorHover={theme.buttonSelectHover} colorTheme={theme.colorText} isActive={visibleFilter === "author"} onClick={() => toggleVisibleFilter('author')}>исполнителю</S.ButtonAuthor>
             {visibleFilter === "author" && (blockFilterAuthor())}
             
-            <S.ButtonYear style={{color: theme.colorText}} isActive={visibleFilter === "year"} onClick={() => toggleVisibleFilter("year")}>году выпуска</S.ButtonYear>
+            <S.ButtonYear colorTheme={theme.colorText} isActive={visibleFilter === "year"} onClick={() => toggleVisibleFilter("year")}>году выпуска</S.ButtonYear>
             {visibleFilter === "year" && <div style={{color: theme.colorText}}>Я фильтр по году</div>}
-            <S.ButtonGenre style={{color: theme.colorText}} isActive={visibleFilter === "genre"} onClick={() => toggleVisibleFilter("genre")}>жанру</S.ButtonGenre>
+            <S.ButtonGenre colorTheme={theme.colorText} isActive={visibleFilter === "genre"} onClick={() => toggleVisibleFilter("genre")}>жанру</S.ButtonGenre>
             {visibleFilter === "genre" && <div style={{color: theme.colorText}}>Я фильтр по жанру</div>}
         </S.CenterblockFilter>
         <S.CenterblockContent>
@@ -200,10 +200,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    {/* <use xlinkHref="img/icon/sprite.svg#icon-note"></use> */}
-                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"} />
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
@@ -228,9 +227,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
@@ -255,9 +254,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
@@ -282,9 +281,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
@@ -309,9 +308,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
@@ -336,9 +335,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
@@ -363,9 +362,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
@@ -390,9 +389,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
@@ -417,9 +416,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
@@ -444,9 +443,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
@@ -471,9 +470,9 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>

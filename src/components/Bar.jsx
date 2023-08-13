@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import * as S from '../styles/Bar';
 import { songsdata } from './audios';
+import { useThemeContext } from '../context/Context';
 
 const Skeleton = () => (
 <S.TrackPlayContainSkeleton>
@@ -14,6 +15,8 @@ const Skeleton = () => (
 
 export default function Bar() {
     const [loading, setLoading] = React.useState(true);
+
+    const { theme } = useThemeContext();
 
     React.useEffect(() => {
         setTimeout(() => {
@@ -59,8 +62,8 @@ export default function Bar() {
         <S.Bar>
         <audio src="/music/Bobby_Marleni_-_Dropin.mp3" ref={audioElem} onTimeUpdate={onPlaying} />
         <S.BarContent>
-            <S.BarPlayerProgress onClick={checkWidth} ref={clickRef}><S.BarProgressLine style={{width: `${currentSong.progress+"%"}`}} /></S.BarPlayerProgress>
-            <S.BarPlayerBlock>
+            <S.BarPlayerProgress style={{background: theme.backgroundBarPlayerProgress}} onClick={checkWidth} ref={clickRef}><S.BarProgressLine style={{width: `${currentSong.progress+"%"}`}} /></S.BarPlayerProgress>
+            <S.BarPlayerBlock style={{background: theme.backgroundBar}}>
                 <S.BarPlayer>
                     <S.PlayerControls>
                         <S.PlayerBtnPrev>
@@ -100,18 +103,18 @@ export default function Bar() {
                     <S.PlayerTrackPlay>
                         {loading ? <Skeleton /> : 
                         <S.TrackPlayContain>
-                            <S.TrackPlayImage>
+                            <S.TrackPlayImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackPlaySvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackPlaySvg>
                             </S.TrackPlayImage>
                         
                             <S.TrackPlayAuthor>
-                                <S.TrackPlayAuthorLink href="http://">Ты та...</S.TrackPlayAuthorLink>
+                                <S.TrackPlayAuthorLink style={{color: theme.colorText}} href="http://">Ты та...</S.TrackPlayAuthorLink>
                             </S.TrackPlayAuthor>
                         
                             <S.TrackPlayAlbum>
-                                <S.TrackPlayAlbumLink href="http://">Баста</S.TrackPlayAlbumLink>
+                                <S.TrackPlayAlbumLink style={{color: theme.colorText}} href="http://">Баста</S.TrackPlayAlbumLink>
                             </S.TrackPlayAlbum>
                         </S.TrackPlayContain>
                         }
