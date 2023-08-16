@@ -6,11 +6,11 @@ import Bar from '../components/Bar';
 export const Main = () => {
 
     return (
-        <>
+      <>
         <Nav />
         <CenterBlock />
         <SideBar />
         <Bar />
-        </>
+      </>
     )
 }

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import * as S from '../styles/CenterBlock';
+import { useThemeContext } from '../context/Context';
 
 const Skeleton = () => (
     <S.ContentPlaylist>
@@ -119,6 +120,8 @@ export default function CenterBlock() {
     const [visibleFilter, setVisibleFilter] = useState(null);
     const [loading, setLoading] = React.useState(true);
 
+    const { theme } = useThemeContext();
+
     const toggleVisibleFilter = (filter) => {
         setVisibleFilter(visibleFilter === filter ? null : filter);
       };
@@ -164,25 +167,27 @@ export default function CenterBlock() {
         <S.MainCenterblock>
         <S.CenterblockSearch>
             <S.SearchSvg>
-                <use xlinkHref="img/icon/sprite.svg#icon-search"></use>
+                <use xlinkHref={theme.colorText === '#FFFFFF' ? 'img/icon/sprite.svg#icon-search' : 'img/icon/sprite.svg#icon-search-dark'} />
             </S.SearchSvg>
-            <S.SearchText type="search" placeholder="Поиск" name="search" />
+            <S.SearchText style={{color: theme.colorText}} type="search" placeholder="Поиск" name="search" />
         </S.CenterblockSearch>
-        <S.CenterblockH2>Треки</S.CenterblockH2>
+        <S.CenterblockH2 style={{color: theme.colorText}}>Треки</S.CenterblockH2>
         <S.CenterblockFilter>
-            <S.FilterTitle>Искать по:</S.FilterTitle>
-            <S.ButtonAuthor isActive={visibleFilter === "author"} onClick={() => toggleVisibleFilter('author')}>исполнителю</S.ButtonAuthor>
+            <S.FilterTitle style={{color: theme.colorText}}>Искать по:</S.FilterTitle>
+
+            <S.ButtonAuthor colorHover={theme.buttonSelectHover} colorTheme={theme.colorText} isActive={visibleFilter === "author"} onClick={() => toggleVisibleFilter('author')}>исполнителю</S.ButtonAuthor>
             {visibleFilter === "author" && (blockFilterAuthor())}
-            <S.ButtonYear isActive={visibleFilter === "year"} onClick={() => toggleVisibleFilter("year")}>году выпуска</S.ButtonYear>
-            {visibleFilter === "year" && <div>Я фильтр по году</div>}
-            <S.ButtonGenre isActive={visibleFilter === "genre"} onClick={() => toggleVisibleFilter("genre")}>жанру</S.ButtonGenre>
-            {visibleFilter === "genre" && <div>Я фильтр по жанру</div>}
+            
+            <S.ButtonYear colorTheme={theme.colorText} isActive={visibleFilter === "year"} onClick={() => toggleVisibleFilter("year")}>году выпуска</S.ButtonYear>
+            {visibleFilter === "year" && <div style={{color: theme.colorText}}>Я фильтр по году</div>}
+            <S.ButtonGenre colorTheme={theme.colorText} isActive={visibleFilter === "genre"} onClick={() => toggleVisibleFilter("genre")}>жанру</S.ButtonGenre>
+            {visibleFilter === "genre" && <div style={{color: theme.colorText}}>Я фильтр по жанру</div>}
         </S.CenterblockFilter>
         <S.CenterblockContent>
             <S.ContentTitle>
-                <S.Col01>Трек</S.Col01>
-                <S.Col02>ИСПОЛНИТЕЛЬ</S.Col02>
-                <S.Col03>АЛЬБОМ</S.Col03>
+                <S.Col01 style={{color: theme.colorTextCenterBlock}}>Трек</S.Col01>
+                <S.Col02 style={{color: theme.colorTextCenterBlock}}>ИСПОЛНИТЕЛЬ</S.Col02>
+                <S.Col03 style={{color: theme.colorTextCenterBlock}}>АЛЬБОМ</S.Col03>
                 <S.Col04>
                     <S.PlaylistTitleSvg alt="time">
                         <use xlinkHref="img/icon/sprite.svg#icon-watch"></use>
@@ -195,26 +200,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://">Guilt <S.TrackTitleSpan /></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}>Guilt <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}} /></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://">Nero</S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}>Nero</S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://">Welcome Reality</S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}>Welcome Reality</S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>4:44</S.TrackTimeText>
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}}>4:44</S.TrackTimeText>
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
@@ -222,26 +227,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://">Elektro <S.TrackTitleSpan /></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}>Elektro <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}} /></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://">Dynoro, Outwork, Mr. Gee</S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}>Dynoro, Outwork, Mr. Gee</S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://">Elektro</S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}>Elektro</S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>2:22</S.TrackTimeText>
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}}>2:22</S.TrackTimeText>
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
@@ -249,26 +254,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://">I’m Fire <S.TrackTitleSpan /></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}>I’m Fire <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}} /></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://">Ali Bakgor</S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}>Ali Bakgor</S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://">I’m Fire</S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}>I’m Fire</S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>2:22</S.TrackTimeText>
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}}>2:22</S.TrackTimeText>
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
@@ -276,26 +281,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://">Non Stop <S.TrackTitleSpan>(Remix)</S.TrackTitleSpan></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}>Non Stop <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}}>(Remix)</S.TrackTitleSpan></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://">Стоункат, Psychopath</S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}>Стоункат, Psychopath</S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://">Non Stop</S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}>Non Stop</S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>4:12</S.TrackTimeText>
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}}>4:12</S.TrackTimeText>
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
@@ -303,26 +308,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://">Run Run <S.TrackTitleSpan>(feat. AR/CO)</S.TrackTitleSpan></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}>Run Run <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}}>(feat. AR/CO)</S.TrackTitleSpan></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://">Jaded, Will Clarke, AR/CO</S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}>Jaded, Will Clarke, AR/CO</S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://">Run Run</S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}>Run Run</S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>2:54</S.TrackTimeText>
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}}>2:54</S.TrackTimeText>
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
@@ -330,26 +335,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://">Eyes on Fire <S.TrackTitleSpan>(Zeds Dead Remix)</S.TrackTitleSpan></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}>Eyes on Fire <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}}>(Zeds Dead Remix)</S.TrackTitleSpan></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://">Blue Foundation, Zeds Dead</S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}>Blue Foundation, Zeds Dead</S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://">Eyes on Fire</S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}>Eyes on Fire</S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>5:20</S.TrackTimeText>
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}}>5:20</S.TrackTimeText>
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
@@ -357,26 +362,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://">Mucho Bien <S.TrackTitleSpan>(Hi Profile Remix)</S.TrackTitleSpan></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}>Mucho Bien <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}}>(Hi Profile Remix)</S.TrackTitleSpan></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://">HYBIT, Mr. Black, Offer Nissim, Hi Profile</S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}>HYBIT, Mr. Black, Offer Nissim, Hi Profile</S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://">Mucho Bien</S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}>Mucho Bien</S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>3:41</S.TrackTimeText>
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}}>3:41</S.TrackTimeText>
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
@@ -384,26 +389,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://">Knives n Cherries <S.TrackTitleSpan /></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}>Knives n Cherries <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}} /></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://">minthaze</S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}>minthaze</S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://">Captivating</S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}>Captivating</S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>1:48</S.TrackTimeText>
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}}>1:48</S.TrackTimeText>
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
@@ -411,26 +416,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://">How Deep Is Your Love <S.TrackTitleSpan /></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}>How Deep Is Your Love <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}} /></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://">Calvin Harris, Disciples</S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}>Calvin Harris, Disciples</S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://">How Deep Is Your Love</S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}>How Deep Is Your Love</S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>3:32</S.TrackTimeText>
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}}>3:32</S.TrackTimeText>
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
@@ -438,26 +443,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://">Morena <S.TrackTitleSpan /></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}>Morena <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}} /></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://">Tom Boxer</S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}>Tom Boxer</S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://">Soundz Made in Romania</S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}>Soundz Made in Romania</S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>3:36</S.TrackTimeText>
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}}>3:36</S.TrackTimeText>
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
@@ -465,26 +470,26 @@ export default function CenterBlock() {
                 <S.PlaylistItem>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
-                            <S.TrackTitleImage>
+                            <S.TrackTitleImage style={{background: theme.backgroundTrackTitleImage}}>
                                 <S.TrackTitleSvg alt="music">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                    <use xlinkHref={theme.colorText === '#FFFFFF' ? "img/icon/sprite.svg#icon-note" : "img/icon/sprite.svg#icon-note-dark"}></use>
                                 </S.TrackTitleSvg>
                             </S.TrackTitleImage>
                             <S.TrackTitleText>
-                                <S.TrackTitleLink href="http://"> <S.TrackTitleSpan /></S.TrackTitleLink>
+                                <S.TrackTitleLink href="http://" style={{color: theme.colorText}}> <S.TrackTitleSpan style={{color: theme.colorTextCenterBlock}} /></S.TrackTitleLink>
                             </S.TrackTitleText>
                         </S.TrackTitle>
                         <S.TrackAuthor>
-                            <S.TrackAuthorLink href="http://"></S.TrackAuthorLink>
+                            <S.TrackAuthorLink href="http://" style={{color: theme.colorText}}></S.TrackAuthorLink>
                         </S.TrackAuthor>
                         <S.TrackAlbum>
-                            <S.TrackAlbumLink href="http://"></S.TrackAlbumLink>
+                            <S.TrackAlbumLink href="http://" style={{color: theme.colorTextCenterBlock}}></S.TrackAlbumLink>
                         </S.TrackAlbum>
                         <S.TrackTime>
                             <S.TrackTimeSvg alt="time">
                                 <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText />
+                            <S.TrackTimeText style={{color: theme.colorTextCenterBlock}} />
                         </S.TrackTime>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
