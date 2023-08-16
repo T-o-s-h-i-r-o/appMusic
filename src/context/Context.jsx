@@ -44,4 +44,3 @@ export const themes = {
   
     return theme;
   }
-  
